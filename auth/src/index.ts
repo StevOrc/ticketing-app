@@ -31,7 +31,7 @@ const start = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-    console.log(`CONNECTED TO MONGO DB`);
+    console.log(`CONNECTED TO MONGO DB !!!`);
   } catch (error) {
     console.log("error");
   }
