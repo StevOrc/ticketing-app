@@ -44,6 +44,7 @@ router.post(
     res.status(201).send(user);
   }
 );
+
 router.get("/api/users/signup", async (req, res) => {
   const result = await User.find();
   res.status(200).send(result);
