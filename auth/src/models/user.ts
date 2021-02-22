@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema<UserDoc>(
   }
 );
 
-// Ici on ne peut pas use une arrow fn, ar le this sera égale au context de la classe
+// Ici on ne peut pas use une arrow fn, car le this sera égale au context de la classe
 // Et ne fera pas ref au User save au moment du save
 userSchema.pre("save", async function (done) {
   if (this.isModified("password")) {
