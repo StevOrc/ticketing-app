@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@geksorg/common": "^1.0.6",
     "@types/node": "^14.14.31",
     "node-nats-streaming": "^0.3.2",
     "ts-node-dev": "^1.1.1",
