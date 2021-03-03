@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import { requireAuth, validationRequest } from "@geksorg/common";
 import { Ticket } from "../models/ticket";
-import { TicketCreaedPublisher } from "../events/publishers/ticker-created-publiser";
+import { TicketCreaedPublisher } from "../events/publishers/ticket-created-publiser";
 import { natsWrapper } from "./../nats-wrapper";
 
 const router = express.Router();
