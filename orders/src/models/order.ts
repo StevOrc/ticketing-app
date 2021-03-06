@@ -19,6 +19,7 @@ interface OrderDoc extends mongoose.Document {
   userId: string;
   status: OrderStatus;
   expireAt: Date;
+  ticket: TicketDoc;
 }
 
 const orderSchema = new mongoose.Schema<OrderDoc>(
