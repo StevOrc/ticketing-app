@@ -27,7 +27,9 @@ const start = async () => {
   } catch (error) {
     console.log("error");
   }
-  app.listen(port, () => {});
+  app.listen(port, () => {
+    console.log("ORDERS listeneing on port : ", port);
+  });
 };
 
 start();

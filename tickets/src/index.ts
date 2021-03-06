@@ -3,6 +3,7 @@ import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
 
 const port = process.env.PORT || 3000;
+
 const start = async () => {
   if (!process.env.JWT_KEY) throw new Error("JWT_KEY must be priveded");
   if (!process.env.MONGO_URI) throw new Error("MONGO URI must be provided");
@@ -36,7 +37,9 @@ const start = async () => {
   } catch (error) {
     console.log("error");
   }
-  app.listen(port, () => {});
+  app.listen(port, () => {
+    console.log("TICKETS listeneing on port : ", port);
+  });
 };
 
 start();
