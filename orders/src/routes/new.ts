@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 import express, { Request, Response } from "express";
 import {
-  requireAuth,
   validationRequest,
-  NotFoundError,
   BadRequestError,
   OrderStatus,
 } from "@geksorg/common";
@@ -60,7 +58,7 @@ router.post(
       id: order.id,
       status: order.status,
       userId: order.userId,
-      version: order.ticket.version,
+      version: order.version,
       expireAt: order.expireAt.toISOString(),
       ticket: {
         id: ticket.id,
