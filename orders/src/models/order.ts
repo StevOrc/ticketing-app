@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { OrderStatus } from "@geksorg/common";
+import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 import { TicketDoc } from "./ticket";
 
 export { OrderStatus };
@@ -22,7 +23,7 @@ interface OrderDoc extends mongoose.Document {
   ticket: TicketDoc;
 }
 
-const orderSchema = new mongoose.Schema<OrderDoc>(
+const orderSchema = new mongoose.Schema<any>(
   {
     userId: {
       type: String,
@@ -51,6 +52,9 @@ const orderSchema = new mongoose.Schema<OrderDoc>(
     },
   }
 );
+
+orderSchema.set("versionKey", "version");
+orderSchema.plugin(updateIfCurrentPlugin);
 
 orderSchema.statics.build = (attrs: OrderAttrs) => {
   return new Order(attrs);

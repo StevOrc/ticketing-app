@@ -7,10 +7,6 @@ interface TicketAttrs {
   userId: string;
 }
 
-interface TicketModel extends mongoose.Model<TicketDoc> {
-  build(attrs: TicketAttrs): TicketDoc;
-}
-
 interface TicketDoc extends mongoose.Document {
   title: string;
   price: number;
@@ -18,7 +14,11 @@ interface TicketDoc extends mongoose.Document {
   version: number;
 }
 
-const ticketSchema = new mongoose.Schema<TicketDoc>(
+interface TicketModel extends mongoose.Model<TicketDoc> {
+  build(attrs: TicketAttrs): TicketDoc;
+}
+
+const ticketSchema = new mongoose.Schema<any>(
   {
     title: {
       type: String,
@@ -44,7 +44,7 @@ const ticketSchema = new mongoose.Schema<TicketDoc>(
 );
 
 ticketSchema.set("versionKey", "version");
-ticketSchema.plugin(updateIfCurrentPlugin);
+ticketSchema.plugin(updateIfCurrentPlugin, { strategy: "version" });
 
 ticketSchema.statics.build = (attrs: TicketAttrs) => {
   return new Ticket(attrs);
