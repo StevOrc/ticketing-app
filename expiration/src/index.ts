@@ -1,8 +1,6 @@
 import { natsWrapper } from "./nats-wrapper";
 import { OrderCreatedListener } from "./events/listeners/order-created-listener";
 
-const port = process.env.PORT || 3000;
-
 const start = async () => {
   if (!process.env.NATS_URL) throw new Error("NATS_URL must be provided");
   if (!process.env.NATS_CLUSTER_ID)
