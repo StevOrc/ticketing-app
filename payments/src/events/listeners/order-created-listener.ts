@@ -1,10 +1,5 @@
 import { queueGroupName } from "./queue-group-name";
-import {
-  Listener,
-  OrderCreatedEvent,
-  Subjects,
-  OrderStatus,
-} from "@geksorg/common";
+import { Listener, OrderCreatedEvent, Subjects } from "@geksorg/common";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../models/order";
 
