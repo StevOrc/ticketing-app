@@ -7,6 +7,7 @@ import { OrderCancelledListener } from "./events/listeners/order-cancelled-liste
 const port = process.env.PORT || 3000;
 
 const start = async () => {
+  if (!process.env.STRIPE_KEY) throw new Error("STRIPE_KEY must be priveded");
   if (!process.env.JWT_KEY) throw new Error("JWT_KEY must be priveded");
   if (!process.env.MONGO_URI) throw new Error("MONGO URI must be provided");
   if (!process.env.NATS_URL) throw new Error("NATS_URL must be provided");
